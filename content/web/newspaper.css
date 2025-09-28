@@ -1,0 +1,420 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: white;
+    --text-color: black;
+}
+
+body.dark-theme {
+    --bg-color: black;
+    --text-color: white;
+}
+
+html, body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    -webkit-font-smoothing: antialiased;
+} 
+
+::selection {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.fab-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between buttons */
+    z-index: 1000;
+}
+
+.fab {
+    /* Sizing and Shape */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Makes it circular */
+    
+    /* Centering the icon inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Newspaper Styling */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    box-shadow: none; /* No shadow as requested */
+    font-size: 26px;
+    font-family: serif; /* Matches newspaper feel */
+    text-decoration: none;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.fab svg {
+    width: 24px;
+    height: 24px;
+}
+
+.fab:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+#content {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+.title {
+    width: 100vw;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(20px, 80px, 80px);
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 0 0 0;
+    margin-bottom: 15px;
+}
+
+.search-wrapper {
+    position: sticky;
+    top: 0;
+    background: var(--bg-color);
+    /* background: #f9f7f1; */
+    z-index: 1000;
+    padding: 0 0;
+    /* --- New rules below --- */
+    display: grid;
+    justify-items: center;
+}
+
+hr {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-top: 2px solid var(--text-color);
+    /* --- New rule below --- */
+    justify-self: stretch;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    width: 100%; /* Make sure this is present */
+    position: relative;
+    padding: 0.25em;
+    gap: 0.5em;
+    /* The "margin: 0 auto;" rule is no longer needed here. */
+}
+
+.search-input {
+    flex: 0 1 60%; /* keep it centered, not full width */
+    text-align: center; /* placeholder + text center */
+    font-family: 'Playfair Display', serif;
+    border: none;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+    padding: 0.5em;
+    font-size: 16px;
+    font-weight: 500;
+    background: transparent;
+    outline: none;
+}
+
+/* --- Portfolio Section Styles --- */
+#portfolio {
+    display: grid;
+    justify-items: center;
+}
+
+.portfolio-section {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to stack on small screens */
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem; /* Vertical and horizontal padding */
+}
+
+.portfolio-photo {
+    flex: 1 1 300px; /* Flex properties for responsive columns */
+}
+
+.portfolio-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid var(--text-color);
+    filter: grayscale(100%); /* Classic newspaper black & white effect */
+}
+
+.portfolio-info {
+    flex: 2 1 400px; /* Makes the info column wider */
+}
+
+.portfolio-info h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin: 0 0 0.25rem 0;
+}
+
+.portfolio-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.8;
+}
+
+.portfolio-info p {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+
+/* --- Timeline Styles --- */
+
+.timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-top: 1rem;
+}
+
+/* The horizontal line of the timeline */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+
+.milepoint {
+    position: relative; /* Anchor for the tooltip and dot */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* The dot on the timeline */
+.milepoint::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    border: 2px solid var(--text-color);
+    z-index: 1; /* Sits on top of the line */
+    transition: transform 0.2s ease;
+}
+
+/* The date label below the dot */
+.milepoint::after {
+    content: attr(data-date); /* Pulls the date from the data-date attribute */
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    font-family: 'Playfair Display', serif;
+    opacity: 0.7;
+}
+
+/* Highlight the 'current' milepoint */
+.milepoint.current::before {
+    background-color: var(--text-color);
+}
+
+.milepoint:hover::before {
+    transform: scale(1.2); /* Enlarge dot on hover */
+}
+
+
+/* --- Tooltip (Floating Window) Styles --- */
+
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 160%; /* Position above the milepoint */
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: 'Playfair Display', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Adds space between text and logo */
+    width: 320px; /* Increased width to fit content */
+    text-align: left; /* Align text to the left */
+    
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-style: solid;
+    border-color: var(--text-color);
+    border-width: 1px;
+    z-index: 10;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tooltip-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain; /* Ensures logo scales correctly */
+    flex-shrink: 0;      /* Prevents logo from shrinking */
+    background-color: #fff; /* Adds a white background for non-transparent logos */
+    border-radius: 4px;
+    padding: 2px;
+}
+
+/* The small triangle pointing down from the tooltip */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--text-color) transparent transparent transparent;
+}
+
+.milepoint:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --- Tooltip Edge Correction for Condensed Views --- */
+
+/* For the FIRST item in the timeline, align the tooltip to the left */
+.timeline .milepoint:first-child .tooltip {
+    left: 0;
+    transform: translateX(0); /* Reset the centering transform */
+}
+
+/* Adjust the triangle for the FIRST item's tooltip */
+.timeline .milepoint:first-child .tooltip::after {
+    left: 15px; /* Position triangle near the start */
+    transform: translateX(0);
+}
+
+/* For the LAST item in the timeline, align the tooltip to the right */
+.timeline .milepoint:last-child .tooltip {
+    left: auto; /* Let the 'right' property take over */
+    right: 0;
+    transform: translateX(0); /* Reset the centering transform */
+}
+
+/* Adjust the triangle for the LAST item's tooltip */
+.timeline .milepoint:last-child .tooltip::after {
+    left: auto;
+    right: 15px; /* Position triangle near the end */
+    transform: translateX(0);
+}
+
+.org-ul {
+    display: none;
+}
+
+#blog-posts-container {
+    padding: 2rem 1rem;       /* Padding from the screen edges */
+    column-gap: 2rem;         /* The space between columns */
+    column-rule: 1px solid var(--text-color); /* The vertical divider line */
+    width: 100vw;
+    /* Set column counts with media queries */
+    column-count: 1; /* Default for mobile */
+}
+
+@media (min-width: 600px) {
+    #blog-posts-container {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 900px) {
+    #blog-posts-container {
+        column-count: 3; /* Max of 3 columns */
+    }
+}
+
+.blog-post-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Positions the line in the space below the card */
+    left: 1.5rem; /* Match the side padding */
+    right: 1.5rem; /* Match the side padding */
+    height: 1px;
+    background-color: var(--text-color);
+}
+
+.blog-post-card.is-last-in-column::after {
+    display: none;
+}
+
+.blog-post-card {
+    /* This prevents a single card from splitting across two columns */
+    break-inside: avoid;
+    position: relative; 
+    /* Resetting previous styles */
+    border: none;
+    padding: 1.5rem;
+    margin-bottom: 2rem; /* Vertical space between cards in the same column */
+}
+
+.blog-post-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+}
+
+.blog-post-card p {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+}
+
+.blog-post-card a {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* --- Responsive adjustments for smaller screens --- */
+@media (max-width: 768px) {
+    .portfolio-section {
+        padding: 1.5rem 1rem;
+    }
+    .portfolio-info h1 {
+        margin-top: 1rem;
+    }
+}
+
+#postamble {
+    display: none;
+}

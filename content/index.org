@@ -1,3 +1,67 @@
-#+HTML_HEAD_EXTRA: <link rel='stylesheet' href='./style.css'>
+#+TITLE: Portfolio & Blogs
+#+HTML_HEAD: <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-Hello
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="web/newspaper.css" />
+
+- [[./blog1.org]]
+- [[./blog2.org]]
+- [[./blog3.org]]
+- [[./blog4.org]]
+- [[./blog5.org]]
+
+#+begin_export html
+
+<div id="portfolio">
+    <hr/>
+    <div class="portfolio-section">
+
+        <div class="portfolio-photo">
+            <img src="https://matca.cz/wp-content/uploads/2020/03/tem-difrakce.jpg" alt="A profile photo for the portfolio">
+        </div>
+
+        <div class="portfolio-info">
+            <h1>Adityan S</h1>
+            <h2>Junior Research Fellow in Physics</h2>
+            <p>
+                A PhD candidate and Junior Research Fellow in physics with a passion for analytical problem-solving. This approach extends to my enthusiasm for technology, where I leverage tools like Linux, Emacs, and programming to build efficient solutions.
+            </p>
+
+            <div class="timeline">
+                <div class="milepoint" data-date="2020">
+                    <span class="tooltip">Joined the Integrated M.Sc. Physics program at the Indian Institute of Technology Roorkee (IITR).
+                    <img class="tooltip-logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Indian_Institute_of_Technology_Roorkee_Logo.svg/1024px-Indian_Institute_of_Technology_Roorkee_Logo.svg.png" alt="IITR Logo">   
+                    </span>
+                </div>
+                <div class="milepoint" data-date="2025">
+                    <span class="tooltip">Began my PhD journey as a Junior Research Fellow at the Raman Research Institute (RRI).
+                    <img class="tooltip-logo" src="https://www.rri.res.in/~ranjini/logo2.png" alt="RRI Logo">
+     
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+ <div class="search-wrapper">
+    <hr/>
+    <div class="search-bar">
+      <input type="text" id="search" class="search-input" placeholder="SEARCH BLOGS">
+    </div>
+    <hr/>
+  </div>
+
+   <div class="fab-container">
+    <a href="/index.html" class="fab" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    </a>
+    <button id="theme-switcher" class="fab" aria-label="Toggle Theme">
+        </button>
+</div>
+<div id="blog-posts-container"></div>
+<script src="web/blog.js"></script>
+<script src="web/theme.js"></script>
+#+end_export
+
+

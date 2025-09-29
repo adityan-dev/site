@@ -1,3 +1,0 @@
-#+TITLE: Example Blog Page
-#+HTML_HEAD_EXTRA: <link rel='stylesheet' href='/res/margin-style.css'>
-

@@ -3,11 +3,11 @@
 
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="web/newspaper.css" />
 
-- [[./blog1.org]]
-- [[./blog2.org]]
-- [[./blog3.org]]
-- [[./blog4.org]]
-- [[./blog5.org]]
+- [[./blogs/blog1.org]]
+- [[./blogs/blog2.org]]
+- [[./blogs/blog3.org]]
+- [[./blogs/blog4.org]]
+- [[./blogs/blog5.org]]
 
 #+begin_export html
 
